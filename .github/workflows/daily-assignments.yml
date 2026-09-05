@@ -2,8 +2,15 @@ name: Daily Canvas Assignment Notifications
 
 on:
   schedule:
-    # 11:00 UTC = 7:00 AM Eastern Daylight Time (adjust for your timezone/DST)
-    - cron: "0 11 * * *"
+    # 15:00 UTC = 11:00 AM Eastern Daylight Time, every day
+    - cron: "0 15 * * *"
+    # 01:00 UTC Monday = 9:00 PM Eastern Daylight Time on Sunday
+    # (crosses midnight UTC, so the weekday here is Monday, not Sunday)
+    - cron: "0 1 * * 1"
+    # NOTE: these times are Eastern DAYLIGHT time (EDT, UTC-4). When clocks
+    # fall back to EST (UTC-5) in November, both times will effectively run
+    # an hour later locally (e.g. 11 AM becomes 12 PM) until you shift the
+    # UTC hours below by +1, or shift them back forward again next spring.
   workflow_dispatch: {}  # lets you manually trigger a run from the Actions tab to test
 
 jobs:
@@ -30,6 +37,7 @@ jobs:
           GITHUB_REPO: ${{ github.repository }}
           GITHUB_DISPATCH_TOKEN: ${{ secrets.GH_DISPATCH_TOKEN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CANVAS_ANNOUNCEMENT_FEEDS: ${{ secrets.CANVAS_ANNOUNCEMENT_FEEDS }}
         run: python check_assignments.py
 
       - name: Commit updated state.json
