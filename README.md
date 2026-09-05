@@ -12,42 +12,32 @@ Actions. No Twilio, no phone carrier, no paid account anywhere.
    out what's due, skips anything you've completed or currently snoozed,
    summarizes each one in plain English (if `ANTHROPIC_API_KEY` is set), and
    sends up to 3 notifications:
-   - **⏰ Overdue assignments** — one combined message, read-only
+   - **⏰ Overdue assignments** — one combined message, each item shown
+     with its due date, plus a "Mark all done" button for clearing a backlog
+     at once
    - **Individual notifications** — one per item due today/tomorrow, each
      with tap buttons
-   - **🔭 Coming up** — one combined message, read-only, everything due
-     later
+   - **🔭 Coming up** — one combined message, each item shown with its due
+     date, everything due later
 2. **Tap an action** (fires instantly from your phone): on the individual
-   today/tomorrow notifications, tapping the notification itself opens the
-   assignment in Canvas. Three buttons on it: **Complete** (stop mentioning
-   it), **Snooze 2h** (hide it for a couple hours), **Draft** (Claude writes
-   a starting draft and texts it back to you). Tapping any of these sends a
-   request directly from your phone to GitHub's API, which triggers a second
-   workflow to handle it. No server of your own in between. The grouped
-   Overdue/Coming Up messages just have a single "Open Canvas Calendar" link
-   instead, since a combined message can't distinguish which item a tap
-   refers to.
+   today/tomorrow notifications, two buttons: **Complete** (stop mentioning
+   it) and **Snooze 2h** (hide it for a couple hours). Tapping either sends
+   a request directly from your phone to GitHub's API, which triggers a
+   second workflow to handle it. No server of your own in between. None of
+   the notifications link out to Canvas automatically — everything you need
+   to decide what to do is in the notification itself.
 3. **Announcements** (optional): if you've added course announcement feeds,
    any new announcement posted since your last check gets its own
    notification too, with a link straight to it in Canvas.
 
-### A note on the Draft button
-
-Claude will write you a genuine starting point — an outline with real
-substance, or a rough first pass — explicitly meant to be revised and
-rewritten in your own words, not turned in as-is. Submitting AI-written work
-as your own is academic dishonesty at essentially every school regardless of
-which tool produced it. This is meant to get you unstuck when you don't know
-where to start, not to replace doing the assignment.
-
 ## One important security note
 
-The Complete/Snooze/Draft buttons need a GitHub access token to work — a tap
-has to be able to authorize a change to your repo (and, for Draft, trigger a
-Claude API call). That token travels inside the notification through ntfy's
-relay server and lives on your phone once received. **Scope it to only this
-one repo, nothing else.** Worst case if it were ever exposed: someone could
-mess with your assignment tracker repo — annoying, not dangerous. Setup
+The Complete/Snooze buttons need a GitHub access token to work — a tap has
+to be able to authorize a change to your repo. That token travels inside
+the notification through ntfy's relay server and lives on your phone once
+received. **Scope it to only this one repo, nothing else.** Worst case if it
+were ever exposed: someone could mess with your assignment tracker repo —
+annoying, not dangerous. Setup
 below walks through creating a properly scoped token.
 
 ## Setup
@@ -158,9 +148,6 @@ always UTC. Format: `minute hour day month weekday`.
   — if you snooze at 11:05 AM, you likely won't see it again until the next
   day's 11 AM run, not 1:05 PM. Add more frequent schedule entries to
   `daily-assignments.yml` if you want tighter timing.
-- Draft results are cached per assignment after the first request — tapping
-  Draft again on the same item resends the same draft instantly rather than
-  generating a new one (and doesn't cost anything extra).
 - Overdue, un-marked-done items keep resurfacing (bounded to the last 14
   days) rather than silently disappearing once the due date passes.
 - The daily notification includes a one-line Claude-generated summary when
