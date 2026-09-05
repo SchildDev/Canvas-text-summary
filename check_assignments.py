@@ -318,14 +318,9 @@ def escape_action_field(value):
 
 def build_actions(event, github_repo, github_token, snooze_hours):
     """
-    Build the ntfy Actions header value: up to 3 tap buttons.
+    Build the ntfy Actions header value: 2 tap buttons.
       1. Complete -> HTTP POST to GitHub's repository_dispatch API
       2. Snooze   -> same, different event_type
-      3. Draft    -> same, triggers a Claude-drafted starting point
-
-    "Open in Canvas" isn't one of these — it's set separately via the ntfy
-    Click header (see send_ntfy_notification), which is the notification's
-    default tap target and doesn't consume one of the 3 button slots.
 
     See: https://docs.ntfy.sh/publish/#action-buttons
     """
@@ -335,7 +330,6 @@ def build_actions(event, github_repo, github_token, snooze_hours):
     for label, event_type, extra_payload in [
         ("Complete", "assignment_done", {}),
         (f"Snooze {snooze_hours}h", "assignment_snooze", {"snooze_hours": snooze_hours}),
-        ("Draft", "assignment_draft", {}),
     ]:
         payload = {"event_type": event_type, "client_payload": {"id": event["id"], **extra_payload}}
         body = escape_action_field(json.dumps(payload))
@@ -349,19 +343,40 @@ def build_actions(event, github_repo, github_token, snooze_hours):
     return "; ".join(actions)
 
 
-def build_group_message(events, calendar_link):
-    """Combine several events into one readable digest message, for the
+def build_group_message(events, today, github_repo=None, github_token=None, include_bulk_done=False):
+    """
+    Combine several events into one readable digest message, for the
     overdue and future buckets where individual tap-to-act notifications
-    would be too noisy."""
+    would be too noisy.
+
+    include_bulk_done=True (used for the overdue bucket) adds a single
+    button that marks every item in this specific message done at once —
+    useful for clearing out a backlog of things you'd already finished
+    before this tool existed, or just handled without going through it.
+    Tap carefully: it's a one-shot bulk action with no undo.
+    """
     lines = []
     for event in events:
-        line = f"• {event['summary']}"
+        due = date.fromisoformat(event["due"])
+        line = f"• {event['summary']} — {due_label(due, today)}"
         if event.get("ai_summary"):
             line += f"\n   {event['ai_summary']}"
         lines.append(line)
-
     message = "\n".join(lines)
-    actions_header = f'view, "Open Canvas Calendar", {calendar_link}' if calendar_link else None
+
+    actions_header = None
+    if include_bulk_done and github_repo and github_token:
+        ids = [e["id"] for e in events]
+        dispatch_url = f"https://api.github.com/repos/{github_repo}/dispatches"
+        payload = {"event_type": "assignments_bulk_done", "client_payload": {"ids": ids}}
+        body = escape_action_field(json.dumps(payload))
+        actions_header = (
+            f'http, "Mark all done", {dispatch_url}, method=POST, '
+            f'headers.Authorization="Bearer {github_token}", '
+            f'headers.Accept="application/vnd.github+json", '
+            f'body=\'{body}\''
+        )
+
     return message, actions_header
 
 
@@ -482,7 +497,6 @@ def main():
     announcement_lookback_days = int(get_env("ANNOUNCEMENT_LOOKBACK_DAYS", required=False, default="3"))
 
     base_domain = urlparse(ics_url).netloc
-    calendar_link = f"https://{base_domain}/calendar"
 
     state = load_state(state_path)
 
@@ -516,7 +530,9 @@ def main():
     overdue, soon, future = bucket_by_urgency(active, today)
 
     if overdue:
-        message, actions_header = build_group_message(overdue, calendar_link)
+        message, actions_header = build_group_message(
+            overdue, today, github_repo=github_repo, github_token=github_dispatch_token, include_bulk_done=True
+        )
         print(f"--- Sending overdue digest ({len(overdue)} item(s)) ---")
         send_ntfy_notification(ntfy_topic, "⏰ Overdue assignments", message, actions_header)
 
@@ -534,10 +550,10 @@ def main():
 
             actions_header = build_actions(event, github_repo, github_dispatch_token, snooze_hours)
             print(f"  -> {event['summary']} ({label})")
-            send_ntfy_notification(ntfy_topic, event["summary"], message, actions_header, click_url=event.get("link"))
+            send_ntfy_notification(ntfy_topic, event["summary"], message, actions_header)
 
     if future:
-        message, actions_header = build_group_message(future, calendar_link)
+        message, actions_header = build_group_message(future, today)
         print(f"--- Sending future digest ({len(future)} item(s)) ---")
         send_ntfy_notification(ntfy_topic, "🔭 Coming up", message, actions_header)
 
