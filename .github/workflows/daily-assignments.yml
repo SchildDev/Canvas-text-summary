@@ -28,7 +28,7 @@ jobs:
           CANVAS_ICS_URL: ${{ secrets.CANVAS_ICS_URL }}
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
           GITHUB_REPO: ${{ github.repository }}
-          GITHUB_DISPATCH_TOKEN: ${{ secrets.GITHUB_DISPATCH_TOKEN }}
+          GITHUB_DISPATCH_TOKEN: ${{ secrets.GH_DISPATCH_TOKEN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python check_assignments.py
 
