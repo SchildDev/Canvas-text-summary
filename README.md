@@ -1,32 +1,54 @@
 # Canvas Daily Assignment Notifier (ntfy.sh version)
 
-Sends you a push notification for each assignment due today/tomorrow — with
-tap buttons to open it in Canvas, mark it done, or snooze it. Runs for free
-on GitHub Actions. No Twilio, no phone carrier, no paid account anywhere.
+Sends push notifications grouped by urgency (overdue / due soon / coming up),
+plus optional announcement alerts, with tap buttons to open, complete,
+snooze, or get a Claude-drafted starting point. Runs for free on GitHub
+Actions. No Twilio, no phone carrier, no paid account anywhere.
 
 ## How it works
 
 1. **Daily check** (GitHub Actions, on a schedule): downloads your Canvas
    calendar feed (an ICS file — public-by-link, no API token needed), figures
-   out what's due, skips anything you've marked done or currently snoozed,
+   out what's due, skips anything you've completed or currently snoozed,
    summarizes each one in plain English (if `ANTHROPIC_API_KEY` is set), and
-   sends one push notification per assignment via ntfy.sh.
-2. **Tap an action** (fires instantly from your phone): each notification has
-   buttons — **Open in Canvas** (goes straight to the assignment), **Done**
-   (stop mentioning it), **Snooze 1d** (hide it for a day). Tapping Done or
-   Snooze sends a request directly from your phone to GitHub's API, which
-   triggers a second workflow to update `state.json`. No server of your own
-   in between.
+   sends up to 3 notifications:
+   - **⏰ Overdue assignments** — one combined message, read-only
+   - **Individual notifications** — one per item due today/tomorrow, each
+     with tap buttons
+   - **🔭 Coming up** — one combined message, read-only, everything due
+     later
+2. **Tap an action** (fires instantly from your phone): on the individual
+   today/tomorrow notifications, tapping the notification itself opens the
+   assignment in Canvas. Three buttons on it: **Complete** (stop mentioning
+   it), **Snooze 2h** (hide it for a couple hours), **Draft** (Claude writes
+   a starting draft and texts it back to you). Tapping any of these sends a
+   request directly from your phone to GitHub's API, which triggers a second
+   workflow to handle it. No server of your own in between. The grouped
+   Overdue/Coming Up messages just have a single "Open Canvas Calendar" link
+   instead, since a combined message can't distinguish which item a tap
+   refers to.
+3. **Announcements** (optional): if you've added course announcement feeds,
+   any new announcement posted since your last check gets its own
+   notification too, with a link straight to it in Canvas.
+
+### A note on the Draft button
+
+Claude will write you a genuine starting point — an outline with real
+substance, or a rough first pass — explicitly meant to be revised and
+rewritten in your own words, not turned in as-is. Submitting AI-written work
+as your own is academic dishonesty at essentially every school regardless of
+which tool produced it. This is meant to get you unstuck when you don't know
+where to start, not to replace doing the assignment.
 
 ## One important security note
 
-The Done/Snooze buttons need a GitHub access token to work — a tap has to be
-able to authorize a change to your repo. That token travels inside the
-notification through ntfy's relay server and lives on your phone once
-received. **Scope it to only this one repo, nothing else.** Worst case if it
-were ever exposed: someone could mess with your assignment tracker repo —
-annoying, not dangerous. Setup below walks through creating a properly
-scoped token.
+The Complete/Snooze/Draft buttons need a GitHub access token to work — a tap
+has to be able to authorize a change to your repo (and, for Draft, trigger a
+Claude API call). That token travels inside the notification through ntfy's
+relay server and lives on your phone once received. **Scope it to only this
+one repo, nothing else.** Worst case if it were ever exposed: someone could
+mess with your assignment tracker repo — annoying, not dangerous. Setup
+below walks through creating a properly scoped token.
 
 ## Setup
 
@@ -80,13 +102,23 @@ secret**:
 |----------------------------|------------------------------------------------------|
 | `CANVAS_ICS_URL`         | The https:// link from step 2                        |
 | `NTFY_TOPIC`             | The topic name from step 1                           |
-| `GITHUB_DISPATCH_TOKEN`  | The token from step 3                                |
+| `GH_DISPATCH_TOKEN`      | The token from step 3 (note: not `GITHUB_...` — that prefix is reserved by GitHub) |
 | `ANTHROPIC_API_KEY` (optional) | Enables plain-English summaries — see below    |
+| `CANVAS_ANNOUNCEMENT_FEEDS` (optional) | Enables announcement notifications — see below |
 
 To get an Anthropic API key: sign up at https://console.anthropic.com,
 create a key under **API Keys**, add a small amount of credit (a few cents
 covers a whole semester — each assignment is only summarized once, ever,
 then cached).
+
+To get announcement feeds: go to each course in Canvas → **Announcements**
+(left sidebar) → look for an RSS feed link/icon (often near the top-right of
+the announcements list). Copy each course's feed URL, then combine them into
+one secret, comma-separated, e.g.:
+`https://canvas.fsu.edu/feeds/courses/abc123.atom,https://canvas.fsu.edu/feeds/courses/def456.atom`.
+Only new announcements from the last few days get sent (configurable via
+`ANNOUNCEMENT_LOOKBACK_DAYS`, default 3), and each one only once — never
+repeated on later runs.
 
 ### 5. Let the workflows save their own updates
 
@@ -98,7 +130,7 @@ workflows need this to commit `state.json` changes back to the repo.
 
 **Actions** tab → **"Daily Canvas Assignment Notifications"** → **Run
 workflow** → **Run workflow** again to confirm. Within ~30 seconds you
-should get one push notification per assignment due. Try tapping **Done**
+should get one push notification per assignment due. Try tapping **Complete**
 on one — check the **Actions** tab again, you should see a new run of
 **"Handle Assignment Action"** appear automatically. Manually re-run the
 daily workflow afterward and confirm that assignment no longer shows up.
@@ -118,10 +150,27 @@ always UTC. Format: `minute hour day month weekday`.
   only thing gating who can see your notifications — pick something long
   and non-obvious, and don't put anything truly sensitive through it.
 - Canvas's ICS feed shows due dates, not submission status — that's exactly
-  why Done/Snooze exist: you tell it what to stop mentioning, since it can't
-  check your actual submissions without full Canvas API access.
+  why Complete/Snooze exist: you tell it what to stop mentioning, since it
+  can't check your actual submissions without full Canvas API access.
+- **Snooze timing is approximate, not exact.** Since notifications only go
+  out on the daily schedule (11 AM + Sunday 9 PM), a "Snooze 2h" tap really
+  means "hidden until the next scheduled run that's at least 2 hours later"
+  — if you snooze at 11:05 AM, you likely won't see it again until the next
+  day's 11 AM run, not 1:05 PM. Add more frequent schedule entries to
+  `daily-assignments.yml` if you want tighter timing.
+- Draft results are cached per assignment after the first request — tapping
+  Draft again on the same item resends the same draft instantly rather than
+  generating a new one (and doesn't cost anything extra).
 - Overdue, un-marked-done items keep resurfacing (bounded to the last 14
   days) rather than silently disappearing once the due date passes.
 - The daily notification includes a one-line Claude-generated summary when
   `ANTHROPIC_API_KEY` is set. Each assignment is only summarized once, ever,
-  and cached in `state.json`.
+  and cached in `state.json` — if an instructor edits the assignment later,
+  the cached summary won't auto-refresh.
+- Canvas announcements live in a totally different part of Canvas than the
+  calendar feed — they need their own per-course feed URLs (see
+  `CANVAS_ANNOUNCEMENT_FEEDS` above). Grades, points-possible, and submission
+  status aren't available from any of these feeds either — this only ever
+  knows what a public calendar/RSS feed can tell it, not the full Canvas API.
+- No-due-date items (e.g. "watch this video," ungraded readings) generally
+  don't appear on the calendar feed at all, so they won't show up here.
