@@ -5,7 +5,7 @@ name: Handle Assignment Action
 # this workflow — no server of your own needed in between.
 on:
   repository_dispatch:
-    types: [assignment_done, assignment_snooze, assignment_draft]
+    types: [assignment_done, assignment_snooze, assignments_bulk_done]
 
 jobs:
   handle-action:
@@ -28,9 +28,8 @@ jobs:
         env:
           COMMAND: ${{ github.event.action }}
           ASSIGNMENT_ID: ${{ github.event.client_payload.id }}
+          ASSIGNMENT_IDS: ${{ join(github.event.client_payload.ids, ',') }}
           SNOOZE_HOURS: ${{ github.event.client_payload.snooze_hours }}
-          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python handle_action.py
 
       - name: Commit updated state.json
