@@ -3,20 +3,21 @@
 Daily Canvas assignment notifier (ntfy.sh version).
 
 Reads a Canvas ICS calendar feed (no API token needed), figures out what's
-due, and sends up to 3 push notifications via ntfy.sh (free, no account
+due, and sends up to 2 push notifications via ntfy.sh (free, no account
 needed), grouped by urgency:
-  ⏰ Overdue assignments  - one combined message, read-only
   (individual notifications) - one per item due today/tomorrow, each with
-                                tap buttons: Complete, Snooze, Draft (tapping
-                                the notification itself opens Canvas)
+                                tap buttons: Complete, Snooze, Draft
   🔭 Coming up            - one combined message, read-only, everything
                                 due later (within FUTURE_DAYS)
+
+Overdue items (past their due date, never marked Complete) aren't tracked
+or mentioned at all by default — see LOOKBACK_DAYS below.
 
 Tapping Complete/Snooze/Draft fires an HTTPS request straight from your
 phone to GitHub's API, which triggers the handle-assignment-action workflow
 (see .github/workflows/handle-assignment-action.yml + handle_action.py) to
 update state.json (and, for Draft, to generate a Claude-drafted starting
-point and text it back to you). No server of your own required.
+point and email it to you). No server of your own required.
 
 Required environment variables (set as GitHub Actions secrets):
   CANVAS_ICS_URL        - your Canvas calendar feed URL (https://..., not webcal://)
@@ -30,7 +31,13 @@ Required environment variables (set as GitHub Actions secrets):
 
 Optional:
   FUTURE_DAYS               - how far ahead the "Coming up" digest looks (default: 14)
-  LOOKBACK_DAYS             - how far back overdue items are still tracked (default: 14)
+  LOOKBACK_DAYS             - how far back to still track already-overdue
+                               items (default: 0 — overdue items aren't
+                               tracked or mentioned at all; once something's
+                               due date passes without you marking it done,
+                               it's silently dropped and never surfaces
+                               again, including if it was mid-snooze when
+                               its due date passed)
   STATE_PATH                - path to the state file (default: state.json)
   SNOOZE_HOURS              - how many hours the Snooze button hides an item
                                for (default: 2). Since notifications only go
@@ -170,18 +177,18 @@ def save_state(state_path, state):
         json.dump(state, f, indent=2, sort_keys=True)
 
 
-def collect_events(cal, lookahead_days, base_domain, lookback_days=14):
+def collect_events(cal, lookahead_days, base_domain, lookback_days=0):
     """
     Parse the ICS feed into a flat list of candidate events (not yet
     filtered by done/snoozed status — that happens against state.json).
 
-    Scans from `lookback_days` in the past through the lookahead window,
-    not just today forward. This matters because we can't tell from the
-    ICS feed whether something overdue was actually submitted — without
-    this, a snoozed item whose due date passes while snoozed would vanish
-    from tracking entirely instead of coming back. Overdue-and-not-marked-
-    done items keep showing up (bounded by lookback_days) until you tap
-    Done for them.
+    Scans from `lookback_days` in the past through the lookahead window.
+    With the default of 0, nothing already past its due date is ever
+    collected at all — overdue items aren't tracked, aren't mentioned, and
+    (as a side effect) a snoozed item whose due date passes while it's
+    still snoozed will vanish for good rather than resurfacing, since it
+    falls outside this window by the time the snooze expires. Set
+    LOOKBACK_DAYS above 0 to bring back overdue tracking if you want it.
     """
     today = date.today()
     cutoff = today + timedelta(days=lookahead_days - 1)
@@ -255,6 +262,64 @@ def summarize_with_claude(api_key, title, raw_description, timeout=20):
         return None
 
 
+def generate_priority_plan(api_key, overdue, soon, future, today, timeout=30):
+    """
+    Ask Claude to look at everything currently on the plate — overdue, due
+    today/tomorrow, and what's coming later — and recommend how to actually
+    spend today's time. Not cached (unlike per-assignment summaries), since
+    the right answer changes daily as the whole picture shifts. Returns None
+    on any failure so a hiccup here never blocks the rest of the run.
+    """
+    if not (overdue or soon or future):
+        return None
+
+    def format_list(events):
+        lines = []
+        for e in events:
+            due = date.fromisoformat(e["due"])
+            note = e.get("ai_summary") or (e.get("detail") or "")[:150]
+            lines.append(f"- {e['summary']} ({due_label(due, today)}){': ' + note if note else ''}")
+        return "\n".join(lines) if lines else "(none)"
+
+    prompt = (
+        "A student wants help deciding what to actually work on today, given "
+        "everything currently on their plate across all their classes. Recommend "
+        "a sensible order/priority for today specifically — what to tackle first "
+        "and why, and what can reasonably wait. Weigh urgency (overdue and "
+        "due-today items generally come first) against how substantial each item "
+        "sounds from its description. Keep it to about 3-5 short lines, plain "
+        "text, no markdown formatting, suitable for a push notification. No "
+        "preamble — start straight into the recommendation.\n\n"
+        f"Overdue:\n{format_list(overdue)}\n\n"
+        f"Due today/tomorrow:\n{format_list(soon)}\n\n"
+        f"Coming up later:\n{format_list(future)}"
+    )
+
+    try:
+        resp = requests.post(
+            "https://api.anthropic.com/v1/messages",
+            headers={
+                "x-api-key": api_key,
+                "anthropic-version": "2023-06-01",
+                "content-type": "application/json",
+            },
+            json={
+                "model": "claude-haiku-4-5-20251001",
+                "max_tokens": 300,
+                "messages": [{"role": "user", "content": prompt}],
+            },
+            timeout=timeout,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        text_blocks = [b["text"] for b in data.get("content", []) if b.get("type") == "text"]
+        plan = " ".join(text_blocks).strip()
+        return plan or None
+    except Exception as exc:  # noqa: BLE001 - never let this block the rest of the run
+        print(f"WARNING: Claude priority plan failed: {exc}", file=sys.stderr)
+        return None
+
+
 def apply_state(events, state, today, anthropic_api_key=None):
     """
     Merge fresh feed data into state.json, then decide which events are
@@ -318,9 +383,10 @@ def escape_action_field(value):
 
 def build_actions(event, github_repo, github_token, snooze_hours):
     """
-    Build the ntfy Actions header value: 2 tap buttons.
+    Build the ntfy Actions header value: 3 tap buttons.
       1. Complete -> HTTP POST to GitHub's repository_dispatch API
       2. Snooze   -> same, different event_type
+      3. Draft    -> same, triggers a Claude-drafted starting point emailed to you
 
     See: https://docs.ntfy.sh/publish/#action-buttons
     """
@@ -330,6 +396,7 @@ def build_actions(event, github_repo, github_token, snooze_hours):
     for label, event_type, extra_payload in [
         ("Complete", "assignment_done", {}),
         (f"Snooze {snooze_hours}h", "assignment_snooze", {"snooze_hours": snooze_hours}),
+        ("Draft", "assignment_draft", {}),
     ]:
         payload = {"event_type": event_type, "client_payload": {"id": event["id"], **extra_payload}}
         body = escape_action_field(json.dumps(payload))
@@ -489,7 +556,7 @@ def main():
     github_repo = get_env("GITHUB_REPO")
     github_dispatch_token = get_env("GITHUB_DISPATCH_TOKEN")
     future_days = int(get_env("FUTURE_DAYS", required=False, default="14"))
-    lookback_days = int(get_env("LOOKBACK_DAYS", required=False, default="14"))
+    lookback_days = int(get_env("LOOKBACK_DAYS", required=False, default="0"))
     state_path = get_env("STATE_PATH", required=False, default=STATE_PATH_DEFAULT)
     snooze_hours = int(get_env("SNOOZE_HOURS", required=False, default="2"))
     anthropic_api_key = get_env("ANTHROPIC_API_KEY", required=False, default=None)
@@ -529,12 +596,13 @@ def main():
 
     overdue, soon, future = bucket_by_urgency(active, today)
 
-    if overdue:
-        message, actions_header = build_group_message(
-            overdue, today, github_repo=github_repo, github_token=github_dispatch_token, include_bulk_done=True
-        )
-        print(f"--- Sending overdue digest ({len(overdue)} item(s)) ---")
-        send_ntfy_notification(ntfy_topic, "⏰ Overdue assignments", message, actions_header)
+    if anthropic_api_key:
+        plan = generate_priority_plan(anthropic_api_key, overdue, soon, future, today)
+        if plan:
+            print("--- Sending priority plan ---")
+            send_ntfy_notification(ntfy_topic, "🎯 Today's priority", plan)
+        else:
+            print("No priority plan generated (skipped or failed).")
 
     if soon:
         print(f"--- Sending {len(soon)} individual notification(s) for today/tomorrow ---")
