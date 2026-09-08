@@ -84,6 +84,22 @@ NOISE_KEYWORDS = [
     "seating window opens",
 ]
 
+# Assignment types where "draft a starting point" doesn't really apply —
+# these are answered directly in Canvas (often auto-graded), not written
+# separately and revised into your own words. Offering a Draft button here
+# would risk Claude generating actual quiz/exam answers, which is a much
+# more direct integrity problem than an essay outline. Matched against the
+# assignment title, case-insensitive.
+NON_DRAFTABLE_KEYWORDS = [
+    "quiz",
+    "exam",
+    "midterm",
+    "final",
+    "test",
+    "attendance",
+    "survey",
+]
+
 COURSE_TAG_RE = re.compile(r"\s*\[([A-Z]{2,4}\d{3,4})[^\]]*\]\s*$")
 COURSE_ID_RE = re.compile(r"course_(\d+)")
 ASSIGNMENT_UID_RE = re.compile(r"event-assignment-(\d+)")
@@ -97,6 +113,13 @@ def get_env(name, required=True, default=None):
         print(f"ERROR: missing required environment variable {name}", file=sys.stderr)
         sys.exit(1)
     return val
+
+
+def is_draftable(summary):
+    """Whether a Draft button makes sense for this assignment, based on its
+    title. See NON_DRAFTABLE_KEYWORDS for the reasoning."""
+    lower = summary.lower()
+    return not any(keyword in lower for keyword in NON_DRAFTABLE_KEYWORDS)
 
 
 def fetch_calendar(ics_url):
@@ -383,21 +406,26 @@ def escape_action_field(value):
 
 def build_actions(event, github_repo, github_token, snooze_hours):
     """
-    Build the ntfy Actions header value: 3 tap buttons.
+    Build the ntfy Actions header value: 2 or 3 tap buttons.
       1. Complete -> HTTP POST to GitHub's repository_dispatch API
       2. Snooze   -> same, different event_type
-      3. Draft    -> same, triggers a Claude-drafted starting point emailed to you
+      3. Draft    -> same, triggers a Claude-drafted starting point emailed
+                     to you — omitted for quizzes/exams/etc. (see
+                     is_draftable), where "drafting" doesn't really apply.
 
     See: https://docs.ntfy.sh/publish/#action-buttons
     """
     dispatch_url = f"https://api.github.com/repos/{github_repo}/dispatches"
     actions = []
 
-    for label, event_type, extra_payload in [
+    button_specs = [
         ("Complete", "assignment_done", {}),
         (f"Snooze {snooze_hours}h", "assignment_snooze", {"snooze_hours": snooze_hours}),
-        ("Draft", "assignment_draft", {}),
-    ]:
+    ]
+    if is_draftable(event["summary"]):
+        button_specs.append(("Draft", "assignment_draft", {}))
+
+    for label, event_type, extra_payload in button_specs:
         payload = {"event_type": event_type, "client_payload": {"id": event["id"], **extra_payload}}
         body = escape_action_field(json.dumps(payload))
         actions.append(
