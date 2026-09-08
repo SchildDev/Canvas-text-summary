@@ -11,14 +11,14 @@ Actions. No Twilio, no phone carrier, no paid account anywhere.
    calendar feed (an ICS file — public-by-link, no API token needed), figures
    out what's due, skips anything you've completed or currently snoozed,
    summarizes each one in plain English (if `ANTHROPIC_API_KEY` is set), and
-   sends up to 3 notifications:
-   - **⏰ Overdue assignments** — one combined message, each item shown
-     with its due date, plus a "Mark all done" button for clearing a backlog
-     at once
+   sends up to 2 notifications:
    - **Individual notifications** — one per item due today/tomorrow, each
      with tap buttons
    - **🔭 Coming up** — one combined message, each item shown with its due
      date, everything due later
+   Overdue items (past due, never marked Complete) aren't tracked or
+   mentioned at all — once something's due date passes without you
+   completing it, it's silently dropped.
 2. **Tap an action** (fires instantly from your phone): on the individual
    today/tomorrow notifications, two buttons: **Complete** (stop mentioning
    it) and **Snooze 2h** (hide it for a couple hours). Tapping either sends
@@ -148,8 +148,16 @@ always UTC. Format: `minute hour day month weekday`.
   — if you snooze at 11:05 AM, you likely won't see it again until the next
   day's 11 AM run, not 1:05 PM. Add more frequent schedule entries to
   `daily-assignments.yml` if you want tighter timing.
-- Overdue, un-marked-done items keep resurfacing (bounded to the last 14
-  days) rather than silently disappearing once the due date passes.
+- **Overdue items disappear silently by default.** Once something's due
+  date passes without you tapping Complete, it's dropped from tracking
+  entirely — no digest, no mention, nothing. As a side effect, if you snooze
+  something and its due date happens to pass while it's still snoozed, it
+  won't come back either. Note: raising `LOOKBACK_DAYS` above 0 would make
+  overdue items get collected again internally, but there's currently no
+  notification code left that sends anything for them (that was removed
+  along with the digest) — so on its own, changing that setting won't
+  actually surface overdue items again. Ask if you want an overdue
+  notification format rebuilt.
 - The daily notification includes a one-line Claude-generated summary when
   `ANTHROPIC_API_KEY` is set. Each assignment is only summarized once, ever,
   and cached in `state.json` — if an instructor edits the assignment later,
