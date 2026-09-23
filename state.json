@@ -82,6 +82,14 @@
       "status": "pending",
       "summary": "Quiz 01 Course Intake Survey (To be Completed in Class) (GEB1030)"
     },
+    "3210121": {
+      "ai_summary": "Read the articles about clear government communication, then take the open-book quiz.",
+      "detail": "Please read the following articles and blog posts, then complete the quiz. This is an open book, open note quiz; you are encouraged to refer to the module materials to answer the questions. Module materials: * \"...[A Law That Bans The Use Of Confusing Words And Sentences In Government DocumentsLink\u2026",
+      "due": "2026-10-06",
+      "link": "https://canvas.fsu.edu/courses/357649/assignments/3210121",
+      "status": "pending",
+      "summary": "Quiz 07 Professional Communication (GEB1030)"
+    },
     "3210123": {
       "ai_summary": "Watch the networking video and article, then complete the short quiz.",
       "detail": "Networking: Please watch the video and read the article on networking then complete the short quiz that follows. * Tanya Menon's TEDTalk (14:06)[The Secret to Great Opportunities] (https://www.youtube.com/watch?v=TFgtI7nt6Q4) * You may find it helpful to refer to the [transcript ] (https://www.ted.\u2026",
@@ -450,14 +458,16 @@
       "summary": "Chapter 3 Homework (FIN3403)"
     },
     "3296309": {
-      "detail": "",
+      "ai_summary": "Take your Module One Exam at the FSU Testing Center with a calculator, blank Excel file, and 3x5 notecard only.",
+      "detail": "Blank excel workbooks and/or financial calculator is allowed. A 3in x 5in notecard can be used as a \"cheat sheet\" as described in class. No other notes, tools, websites, or communication with others. Any copying of the exam, screen shots of questions, or otherwise saving the exam is strictly prohib\u2026",
       "due": "2026-09-29",
       "link": "https://canvas.fsu.edu/courses/366688/assignments/3296309",
       "status": "pending",
       "summary": "Module One Exam - FSU Testing Center / OAS (FIN3403)"
     },
     "3296662": {
-      "detail": "",
+      "ai_summary": "Take the Module One Exam for FIN3403 using only a blank Excel workbook, financial calculator, and 3x5 notecard.",
+      "detail": "Blank excel workbooks and/or financial calculator is allowed. A 3in x 5in notecard can be used as a \"cheat sheet\" as described in class. No other notes, tools, websites, or communication with others. Any copying of the exam, screen shots of questions, or otherwise saving the exam is strictly prohib\u2026",
       "due": "2026-09-29",
       "link": "https://canvas.fsu.edu/courses/366688/assignments/3296662",
       "status": "pending",
@@ -485,12 +495,26 @@
       "status": "pending",
       "summary": "Ch 8 CRE Cash Flows (REE3043)"
     },
+    "event-calendar-event-878578": {
+      "detail": "",
+      "due": "2026-10-06",
+      "link": "https://canvas.fsu.edu/calendar?include_contexts=course_357741&month=10&year=2026#calendar_event_878578",
+      "status": "pending",
+      "summary": "Ch 8: Income Approach to Valuation - Direct Capitalization (REE3043)"
+    },
     "event-calendar-event-880787": {
       "detail": "",
       "due": "2026-09-08",
       "link": "https://canvas.fsu.edu/calendar?include_contexts=course_357741&month=09&year=2026#calendar_event_880787",
       "status": "pending",
       "summary": "Make Exam 1 Appointment (REE3043)"
+    },
+    "event-calendar-event-880790": {
+      "detail": "",
+      "due": "2026-10-06",
+      "link": "https://canvas.fsu.edu/calendar?include_contexts=course_357741&month=10&year=2026#calendar_event_880790",
+      "status": "pending",
+      "summary": "Make Exam 2 Appointment (REE3043)"
     }
   }
 }
