@@ -138,6 +138,14 @@
       "status": "pending",
       "summary": "Quiz 07 Professional Communication (GEB1030)"
     },
+    "3210122": {
+      "ai_summary": "Complete Quiz 10 on professionalism and work culture after reading the provided articles and module materials.",
+      "detail": "Please read the following articles and blog posts, then complete the quiz. This is an open book, open note quiz; you are encouraged to refer to the module materials to answer the questions. Module materials: * \u201cThe Principles of Etiquette.\u201d [ https://emilypost.com/advice/the-principles-of-etiquette\u2026",
+      "due": "2026-10-27",
+      "link": "https://canvas.fsu.edu/courses/357649/assignments/3210122",
+      "status": "pending",
+      "summary": "Quiz 10 Professionalism & Work Culture (GEB1030)"
+    },
     "3210123": {
       "ai_summary": "Watch the networking video and article, then complete the short quiz.",
       "detail": "Networking: Please watch the video and read the article on networking then complete the short quiz that follows. * Tanya Menon's TEDTalk (14:06)[The Secret to Great Opportunities] (https://www.youtube.com/watch?v=TFgtI7nt6Q4) * You may find it helpful to refer to the [transcript ] (https://www.ted.\u2026",
@@ -153,6 +161,14 @@
       "link": "https://canvas.fsu.edu/courses/357649/assignments/3210125",
       "status": "pending",
       "summary": "Exercise 01 Resume Submission (GEB1030)"
+    },
+    "3210126": {
+      "ai_summary": "Create a professional social media presence to experiment with building your personal brand for networking.",
+      "detail": "---------------------------------------------- geb 1030 Exercise 02 Branding via social media ---------------------------------------------- Purpose ------- This assignment asks students to engage with social media as a tool for professional networking, allowing you to experiment with the building\u2026",
+      "due": "2026-10-27",
+      "link": "https://canvas.fsu.edu/courses/357649/assignments/3210126",
+      "status": "pending",
+      "summary": "Exercise 02 Branding Via Social Media (GEB1030)"
     },
     "3210130": {
       "detail": "",
@@ -275,6 +291,20 @@
       "status": "pending",
       "summary": "Chapter 6 Homework (FIN3403)"
     },
+    "3242512": {
+      "detail": "",
+      "due": "2026-10-25",
+      "link": "https://canvas.fsu.edu/courses/366688/assignments/3242512",
+      "status": "pending",
+      "summary": "Chapter 8 Homework (FIN3403)"
+    },
+    "3242519": {
+      "detail": "",
+      "due": "2026-10-27",
+      "link": "https://canvas.fsu.edu/courses/366688/assignments/3242519",
+      "status": "pending",
+      "summary": "Module Two Exam - FSU Testing Center / OAS (FIN3403)"
+    },
     "3242523": {
       "detail": "By answering \"TRUE\" to this one question quiz, you are certifying the following: * I wish to remain enrolled in FIN3403-0001 for the Fall 2026 semester at Florida State University. * I certify that I agree to abide by the policies set forth in the course syllabus and to abide by the academic honor\u2026",
       "due": "2026-08-27",
@@ -288,6 +318,13 @@
       "link": "https://canvas.fsu.edu/courses/366688/assignments/3242527",
       "status": "pending",
       "summary": "Chapter 7 Part 2 Homework (FIN3403)"
+    },
+    "3242528": {
+      "detail": "",
+      "due": "2026-10-27",
+      "link": "https://canvas.fsu.edu/courses/366688/assignments/3242528",
+      "status": "pending",
+      "summary": "Module Two Exam - Off-Campus / SmarterProctoring (FIN3403)"
     },
     "3242530": {
       "detail": "",
@@ -640,6 +677,13 @@
       "link": "https://canvas.fsu.edu/calendar?include_contexts=course_357741&month=10&year=2026#calendar_event_880790",
       "status": "pending",
       "summary": "Make Exam 2 Appointment (REE3043)"
+    },
+    "event-calendar-event-880791": {
+      "detail": "",
+      "due": "2026-10-27",
+      "link": "https://canvas.fsu.edu/calendar?include_contexts=course_357741&month=10&year=2026#calendar_event_880791",
+      "status": "pending",
+      "summary": "Make Exam 3 Appointment (REE3043)"
     }
   }
 }
