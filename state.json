@@ -357,6 +357,54 @@
       "status": "pending",
       "summary": "Analyze: Legal Reasoning 1.1 (BUL3310)"
     },
+    "3244240": {
+      "ai_summary": "Answer case problem questions to improve your critical thinking skills.",
+      "detail": "Case problem questions to help improve critical thinking skills.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244240",
+      "status": "pending",
+      "summary": "Analyze: Legal Reasoning 10.1 (BUL3310)"
+    },
+    "3244241": {
+      "ai_summary": "Answer case problem questions to analyze legal reasoning and develop critical thinking skills.",
+      "detail": "Case problem questions to help improve critical thinking skills.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244241",
+      "status": "pending",
+      "summary": "Analyze: Legal Reasoning 11.1 (BUL3310)"
+    },
+    "3244242": {
+      "ai_summary": "Answer case problem questions to develop your critical thinking skills.",
+      "detail": "Case problem questions to help improve critical thinking skills.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244242",
+      "status": "pending",
+      "summary": "Analyze: Legal Reasoning 13.1 (BUL3310)"
+    },
+    "3244243": {
+      "ai_summary": "Answer case problem questions to develop your critical thinking skills in legal reasoning.",
+      "detail": "Case problem questions to help improve critical thinking skills.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244243",
+      "status": "pending",
+      "summary": "Analyze: Legal Reasoning 14.1 (BUL3310)"
+    },
+    "3244244": {
+      "ai_summary": "Answer case problem questions to improve your critical thinking skills for Legal Reasoning 15.1.",
+      "detail": "Case problem questions to help improve critical thinking skills.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244244",
+      "status": "pending",
+      "summary": "Analyze: Legal Reasoning 15.1 (BUL3310)"
+    },
+    "3244245": {
+      "ai_summary": "Answer case problem questions to improve your critical thinking skills for Legal Reasoning 18.1.",
+      "detail": "Case problem questions to help improve critical thinking skills.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244245",
+      "status": "pending",
+      "summary": "Analyze: Legal Reasoning 18.1 (BUL3310)"
+    },
     "3244246": {
       "ai_summary": "Answer case problem questions to improve your critical thinking skills for Legal Reasoning 2.1.",
       "detail": "Case problem questions to help improve critical thinking skills.",
@@ -413,6 +461,14 @@
       "status": "pending",
       "summary": "Analyze: Legal Reasoning 8.1 (BUL3310)"
     },
+    "3244258": {
+      "ai_summary": "Answer case problem questions to improve your critical thinking skills.",
+      "detail": "Case problem questions to help improve critical thinking skills.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244258",
+      "status": "pending",
+      "summary": "Analyze: Legal Reasoning 9.1 (BUL3310)"
+    },
     "3244259": {
       "ai_summary": "Brief real-world scenarios to practice applying business law concepts and prepare for tests.",
       "detail": "Brief real-world scenarios to practice applying the law and prepare for tests.",
@@ -420,6 +476,62 @@
       "link": "https://canvas.fsu.edu/courses/360962/assignments/3244259",
       "status": "pending",
       "summary": "Apply: Brief Hypotheticals 1.1 (BUL3310)"
+    },
+    "3244260": {
+      "ai_summary": "Brief real-world scenarios to practice applying business law concepts.",
+      "detail": "Brief real-world scenarios to practice applying the law and prepare for tests.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244260",
+      "status": "pending",
+      "summary": "Apply: Brief Hypotheticals 10.1 (BUL3310)"
+    },
+    "3244261": {
+      "ai_summary": "Brief real-world legal scenarios to practice applying the law and prepare for tests.",
+      "detail": "Brief real-world scenarios to practice applying the law and prepare for tests.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244261",
+      "status": "pending",
+      "summary": "Apply: Brief Hypotheticals 11.1 (BUL3310)"
+    },
+    "3244262": {
+      "ai_summary": "Brief real-world scenarios to practice applying business law concepts.",
+      "detail": "Brief real-world scenarios to practice applying the law and prepare for tests.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244262",
+      "status": "pending",
+      "summary": "Apply: Brief Hypotheticals 12.1 (BUL3310)"
+    },
+    "3244263": {
+      "ai_summary": "Brief real-world scenarios to practice applying business law concepts.",
+      "detail": "Brief real-world scenarios to practice applying the law and prepare for tests.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244263",
+      "status": "pending",
+      "summary": "Apply: Brief Hypotheticals 13.1 (BUL3310)"
+    },
+    "3244264": {
+      "ai_summary": "Brief real-world scenarios to practice applying business law concepts.",
+      "detail": "Brief real-world scenarios to practice applying the law and prepare for tests.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244264",
+      "status": "pending",
+      "summary": "Apply: Brief Hypotheticals 14.1 (BUL3310)"
+    },
+    "3244265": {
+      "ai_summary": "Brief real-world scenarios to practice applying business law concepts for test preparation.",
+      "detail": "Brief real-world scenarios to practice applying the law and prepare for tests.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244265",
+      "status": "pending",
+      "summary": "Apply: Brief Hypotheticals 15.1 (BUL3310)"
+    },
+    "3244266": {
+      "ai_summary": "Brief real-world legal scenarios to practice applying law concepts for BUL3310.",
+      "detail": "Brief real-world scenarios to practice applying the law and prepare for tests.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244266",
+      "status": "pending",
+      "summary": "Apply: Brief Hypotheticals 18.1 (BUL3310)"
     },
     "3244267": {
       "ai_summary": "Brief real-world legal scenarios to practice applying course concepts and prepare for exams.",
@@ -477,6 +589,102 @@
       "status": "pending",
       "summary": "Apply: Brief Hypotheticals 8.1 (BUL3310)"
     },
+    "3244289": {
+      "ai_summary": "Brief real-world scenarios applying business law concepts to prepare for tests.",
+      "detail": "Brief real-world scenarios to practice applying the law and prepare for tests.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244289",
+      "status": "pending",
+      "summary": "Apply: Brief Hypotheticals 9.1 (BUL3310)"
+    },
+    "3244292": {
+      "ai_summary": "Answer case problem questions to develop your legal reasoning and critical thinking skills.",
+      "detail": "Case problem questions to help improve critical thinking skills.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244292",
+      "status": "pending",
+      "summary": "Apply: Legal Reasoning 12.1 (BUL3310)"
+    },
+    "3244294": {
+      "ai_summary": "Watch the 3-minute video on offer and acceptance for business law.",
+      "detail": "Engaging video that brings business law topics to life.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244294",
+      "status": "pending",
+      "summary": "Engage: Video Exercise 10.1: Offer and Acceptance (3:00) (BUL3310)"
+    },
+    "3244296": {
+      "ai_summary": "Watch the 4:25 minute video about Jack's Restaurant Scene 2 for business law.",
+      "detail": "Engaging video that brings business law topics to life.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244296",
+      "status": "pending",
+      "summary": "Engage: Video Exercise 10.2: Jack's Restaurant, Scene 2 (4:25) (BUL3310)"
+    },
+    "3244298": {
+      "ai_summary": "Watch the 3:32 video \"Mistake\" and complete the exercise.",
+      "detail": "Engaging video that brings business law topics to life.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244298",
+      "status": "pending",
+      "summary": "Engage: Video Exercise 11.1: Mistake (3:32) (BUL3310)"
+    },
+    "3244300": {
+      "ai_summary": "Watch the 4:53 minute video about Pharzime Scene 2 for your business law class.",
+      "detail": "Engaging video that brings business law topics to life.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244300",
+      "status": "pending",
+      "summary": "Engage: Video Exercise 11.2: Pharzime, Scene 2 (4:53) (BUL3310)"
+    },
+    "3244302": {
+      "ai_summary": "Watch the 4:25 video about Jack's Restaurant Scene 2 for Business Law.",
+      "detail": "Engaging video that brings business law topics to life.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244302",
+      "status": "pending",
+      "summary": "Engage: Video Exercise 12.1: Jack's Restaurant, Scene 2 (4:25) (BUL3310)"
+    },
+    "3244304": {
+      "ai_summary": "Watch a 4-minute video about Jack's Restaurant Scene 2 for your Business Law course.",
+      "detail": "Engaging video that brings business law topics to life.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244304",
+      "status": "pending",
+      "summary": "Engage: Video Exercise 13.1: Jack's Restaurant, Scene 2 (4:25) (BUL3310)"
+    },
+    "3244307": {
+      "ai_summary": "Watch the 4:25 minute video about Jack's Restaurant, Scene 2 for your business law course.",
+      "detail": "Engaging video that brings business law topics to life.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244307",
+      "status": "pending",
+      "summary": "Engage: Video Exercise 14.1: Jack's Restaurant, Scene 2 (4:25) (BUL3310)"
+    },
+    "3244309": {
+      "ai_summary": "Watch the 4:25 minute video about Jack's Restaurant Scene 2 for business law.",
+      "detail": "Engaging video that brings business law topics to life.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244309",
+      "status": "pending",
+      "summary": "Engage: Video Exercise 15.1: Jack's Restaurant, Scene 2 (4:25) (BUL3310)"
+    },
+    "3244311": {
+      "ai_summary": "Watch a 3-minute video about breach and remedies in business law.",
+      "detail": "Engaging video that brings business law topics to life.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244311",
+      "status": "pending",
+      "summary": "Engage: Video Exercise 18.1: Breach and Remedies (3:19) (BUL3310)"
+    },
+    "3244313": {
+      "ai_summary": "Watch the 4:25 minute video about Jack's Restaurant Scene 2 for your business law course.",
+      "detail": "Engaging video that brings business law topics to life.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244313",
+      "status": "pending",
+      "summary": "Engage: Video Exercise 18.2: Jack's Restaurant, Scene 2 (4:25) (BUL3310)"
+    },
     "3244316": {
       "ai_summary": "Watch a 5-minute video about how corporations should prioritize employees as stakeholders.",
       "detail": "Engaging video that brings business law topics to life.",
@@ -533,6 +741,14 @@
       "status": "pending",
       "summary": "Engage: Video Exercise 8.1: Negligence and Assumption of Risk (2:27) (BUL3310)"
     },
+    "3244348": {
+      "ai_summary": "Watch a 3-minute video about offer and acceptance in business law.",
+      "detail": "Engaging video that brings business law topics to life.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244348",
+      "status": "pending",
+      "summary": "Engage: Video Exercise 9.1: Offer and Acceptance (3:00) (BUL3310)"
+    },
     "3244350": {
       "detail": "------------------------------ BUL 3310 First Day Attendance ------------------------------ 1. What to do? ---------------- By submitting to this link, I certify that I wish to remain enrolled in BUL 3310 with Professor William Woodyard for the Fall 2026 at Florida State University by clicking on t\u2026",
       "due": "2026-08-24",
@@ -547,6 +763,62 @@
       "link": "https://canvas.fsu.edu/courses/360962/assignments/3244352",
       "status": "pending",
       "summary": "Prepare: Chapter Review 1.1 (BUL3310)"
+    },
+    "3244354": {
+      "ai_summary": "Complete the Chapter 10.1 quiz to prepare for class.",
+      "detail": "Chapter quizzes to help prepare for class.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244354",
+      "status": "pending",
+      "summary": "Prepare: Chapter Review 10.1 (BUL3310)"
+    },
+    "3244356": {
+      "ai_summary": "Complete the Chapter 11.1 review quiz to prepare for class.",
+      "detail": "Chapter quizzes to help prepare for class.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244356",
+      "status": "pending",
+      "summary": "Prepare: Chapter Review 11.1 (BUL3310)"
+    },
+    "3244358": {
+      "ai_summary": "Complete the Chapter 12.1 review quiz to prepare for class.",
+      "detail": "Chapter quizzes to help prepare for class.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244358",
+      "status": "pending",
+      "summary": "Prepare: Chapter Review 12.1 (BUL3310)"
+    },
+    "3244360": {
+      "ai_summary": "Complete the Chapter 13.1 quiz to prepare for class.",
+      "detail": "Chapter quizzes to help prepare for class.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244360",
+      "status": "pending",
+      "summary": "Prepare: Chapter Review 13.1 (BUL3310)"
+    },
+    "3244362": {
+      "ai_summary": "Complete the Chapter 14.1 quiz to prepare for class.",
+      "detail": "Chapter quizzes to help prepare for class.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244362",
+      "status": "pending",
+      "summary": "Prepare: Chapter Review 14.1 (BUL3310)"
+    },
+    "3244364": {
+      "ai_summary": "Complete the Chapter 15.1 review quiz to prepare for class.",
+      "detail": "Chapter quizzes to help prepare for class.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244364",
+      "status": "pending",
+      "summary": "Prepare: Chapter Review 15.1 (BUL3310)"
+    },
+    "3244367": {
+      "ai_summary": "Complete the Chapter 18.1 review quiz to prepare for class.",
+      "detail": "Chapter quizzes to help prepare for class.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244367",
+      "status": "pending",
+      "summary": "Prepare: Chapter Review 18.1 (BUL3310)"
     },
     "3244369": {
       "ai_summary": "Complete the Chapter 2.1 review quiz to prepare for class.",
@@ -603,6 +875,14 @@
       "link": "https://canvas.fsu.edu/courses/360962/assignments/3244389",
       "status": "pending",
       "summary": "Prepare: Chapter Review 8.1 (BUL3310)"
+    },
+    "3244391": {
+      "ai_summary": "Complete the Chapter 9.1 review quiz to prepare for class.",
+      "detail": "Chapter quizzes to help prepare for class.",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/360962/assignments/3244391",
+      "status": "pending",
+      "summary": "Prepare: Chapter Review 9.1 (BUL3310)"
     },
     "3293456": {
       "detail": "",
