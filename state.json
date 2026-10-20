@@ -1,7 +1,8 @@
 {
   "assignments": {
     "3182235": {
-      "detail": "",
+      "ai_summary": "Take Exam 2 on real estate valuation, leasing, and brokerage at FSU Testing Center with your calculator in the correct mode.",
+      "detail": "Ensure your calculator is in the correct mode. Only use BGN (beginning) mode for lease calculations. For all other TVM calculations, switch back to END mode. * If BGN is displayed on the top of the calculator screen, you're in beginning mode. * If there are no indicators on the top of your screen,\u2026",
       "due": "2026-10-22",
       "link": "https://canvas.fsu.edu/courses/357741/assignments/3182235",
       "status": "pending",
@@ -45,6 +46,13 @@
       "link": "https://canvas.fsu.edu/courses/357741/assignments/3182243",
       "status": "pending",
       "summary": "Hwk 2.2: Ch 22 + Target Company Search (REE3043)"
+    },
+    "3182244": {
+      "detail": "",
+      "due": "2026-11-02",
+      "link": "https://canvas.fsu.edu/courses/357741/assignments/3182244",
+      "status": "pending",
+      "summary": "Hwk 3.2: Ch 11 (REE3043)"
     },
     "3182246": {
       "ai_summary": "Complete an 8-question quiz on property taxes (Section VI, Chapter 4) for 15 points.",
@@ -332,7 +340,7 @@
       "due": "2026-10-27",
       "link": "https://canvas.fsu.edu/courses/366688/assignments/3242528",
       "status": "pending",
-      "summary": "Module Two Exam - Off-Campus / SmarterProctoring (FIN3403)"
+      "summary": "*** Module Two Exam - Off-Campus / SmarterProctoring *** (FIN3403)"
     },
     "3242530": {
       "detail": "",
