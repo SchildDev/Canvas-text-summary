@@ -185,6 +185,13 @@
       "status": "pending",
       "summary": "Quiz 04 Business Career Expo (GEB1030)"
     },
+    "3210131": {
+      "detail": "",
+      "due": "2026-11-03",
+      "link": "https://canvas.fsu.edu/courses/357649/assignments/3210131",
+      "status": "pending",
+      "summary": "Quiz 11 Critical Thinking & Time Management (GEB1030)"
+    },
     "3210134": {
       "detail": "From the syllabus: \"Most of our class meetings will take the form of a workshop, meaning students will practice the skills they are learning about from our readings and other course content. As such, it is important that students are present, attentive, and participatory in every class. Attendance\u2026",
       "due": "2026-08-26",
@@ -336,7 +343,8 @@
       "summary": "Chapter 7 Part 2 Homework (FIN3403)"
     },
     "3242528": {
-      "detail": "",
+      "ai_summary": "Take a 60-minute proctored exam using SmarterProctoring with a 3x5 notecard and Excel allowed.",
+      "detail": "No outside communication. A 3x5 notecard can be used as a \"cheat sheet\" as described in class. You have 60 minutes from starting the exam. You may use normal blank Excel for this exam.",
       "due": "2026-10-27",
       "link": "https://canvas.fsu.edu/courses/366688/assignments/3242528",
       "status": "pending",
@@ -940,7 +948,8 @@
       "summary": "Module One Exam - Makeup (FIN3403)"
     },
     "3319788": {
-      "detail": "",
+      "ai_summary": "Take a 60-minute exam at FSU Testing Center; bring a 3x5 notecard and use Excel if needed.",
+      "detail": "No outside communication. A 3x5 notecard can be used as a \"cheat sheet\" as described in class. You have 60 minutes from starting the exam. You may use normal blank Excel for this exam.",
       "due": "2026-10-28",
       "link": "https://canvas.fsu.edu/courses/366688/assignments/3319788",
       "status": "pending",
