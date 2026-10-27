@@ -49,7 +49,8 @@
       "summary": "Hwk 2.2: Ch 22 + Target Company Search (REE3043)"
     },
     "3182244": {
-      "detail": "",
+      "ai_summary": "Complete a quiz on Chapter 11 with three attempts; your highest score counts.",
+      "detail": "Quiz details: * You have three attempts to complete the quiz before the due date. * Only your highest score will count toward your course grade. * If you choose to retake the quiz, you may receive different questions. * Note: Some changes may be subtle on retakes, so read each question carefully be\u2026",
       "due": "2026-11-02",
       "link": "https://canvas.fsu.edu/courses/357741/assignments/3182244",
       "status": "pending",
@@ -336,6 +337,13 @@
       "link": "https://canvas.fsu.edu/courses/366688/assignments/3242519",
       "status": "pending",
       "summary": "Module Two Exam - FSU Testing Center / OAS (FIN3403)"
+    },
+    "3242522": {
+      "detail": "",
+      "due": "2026-11-01",
+      "link": "https://canvas.fsu.edu/courses/366688/assignments/3242522",
+      "status": "pending",
+      "summary": "Chapter 9 Homework (FIN3403)"
     },
     "3242523": {
       "detail": "By answering \"TRUE\" to this one question quiz, you are certifying the following: * I wish to remain enrolled in FIN3403-0001 for the Fall 2026 semester at Florida State University. * I certify that I agree to abide by the policies set forth in the course syllabus and to abide by the academic honor\u2026",
@@ -977,6 +985,13 @@
       "link": "https://canvas.fsu.edu/courses/360962/assignments/3322274",
       "status": "pending",
       "summary": "Exam 2 - FSU Testing Center / OAS (BUL3310)"
+    },
+    "3322958": {
+      "detail": "",
+      "due": "2026-11-09",
+      "link": "https://canvas.fsu.edu/courses/357741/assignments/3322958",
+      "status": "pending",
+      "summary": "Hwk 3.3: Ch 16 (REE3043)"
     },
     "event-calendar-event-878576": {
       "detail": "",
