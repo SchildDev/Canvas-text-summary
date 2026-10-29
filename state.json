@@ -1028,6 +1028,13 @@
       "status": "pending",
       "summary": "Make Exam 1 Appointment (REE3043)"
     },
+    "event-calendar-event-880788": {
+      "detail": "",
+      "due": "2026-11-11",
+      "link": "https://canvas.fsu.edu/calendar?include_contexts=course_357741&month=11&year=2026#calendar_event_880788",
+      "status": "pending",
+      "summary": "Veteran's Day: University Closed (REE3043)"
+    },
     "event-calendar-event-880790": {
       "detail": "",
       "due": "2026-10-06",
