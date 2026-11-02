@@ -345,6 +345,13 @@
       "status": "pending",
       "summary": "Chapter 8 Homework (FIN3403)"
     },
+    "3242514": {
+      "detail": "",
+      "due": "2026-11-08",
+      "link": "https://canvas.fsu.edu/courses/366688/assignments/3242514",
+      "status": "pending",
+      "summary": "Chapter 11 Homework (FIN3403)"
+    },
     "3242519": {
       "detail": "",
       "due": "2026-10-27",
@@ -404,7 +411,8 @@
       "summary": "Exam 1 -SmarterProctoring / Proctor Outside Tallahassee (BUL3310)"
     },
     "3244234": {
-      "detail": "",
+      "ai_summary": "Take Exam 2 using SmarterProctoring with one page of notes allowed; must be alone in an enclosed room.",
+      "detail": "You may have open 1 one-sided page of written and/or printed notes. No writing instruments are allowed. Students must be alone in an enclosed room. Failing to follow these instructions could result in a violation.",
       "due": "2026-11-08",
       "link": "https://canvas.fsu.edu/courses/360962/assignments/3244234",
       "status": "pending",
@@ -1001,7 +1009,8 @@
       "summary": "*** Module Two Exam - FSU Testing Center / OAS *** (FIN3403)"
     },
     "3322274": {
-      "detail": "",
+      "ai_summary": "Take Exam 2 at FSU Testing Center or OAS with one page of notes allowed; no writing instruments or other people permitted.",
+      "detail": "You may have open 1 one-sided page of written and/or printed notes. No writing instruments are allowed. Students must be alone in an enclosed room. Failing to follow these instructions could result in a violation.",
       "due": "2026-11-08",
       "link": "https://canvas.fsu.edu/courses/360962/assignments/3322274",
       "status": "pending",
