@@ -310,6 +310,13 @@
       "status": "pending",
       "summary": "Exam 2 - FSU Testing Center / OAS (MAR3023)"
     },
+    "3242502": {
+      "detail": "",
+      "due": "2026-11-13",
+      "link": "https://canvas.fsu.edu/courses/366688/assignments/3242502",
+      "status": "pending",
+      "summary": "Exam 3 - Off-Campus / SmarterProctoring (FIN3403)"
+    },
     "3242505": {
       "detail": "",
       "due": "2026-09-06",
@@ -1017,11 +1024,19 @@
       "summary": "Exam 2 - FSU Testing Center / OAS (BUL3310)"
     },
     "3322958": {
-      "detail": "",
+      "ai_summary": "Complete a 12-question quiz on Chapter 16 worth 15 points with three attempts allowed.",
+      "detail": "The quiz consists of just 12 questions, but it carries the same weight (15 points) as your other assignments. Quiz details: * You have three attempts to complete the quiz before the due date. * Only your highest score will count toward your course grade. * If you choose to retake the quiz, you may\u2026",
       "due": "2026-11-09",
       "link": "https://canvas.fsu.edu/courses/357741/assignments/3322958",
       "status": "pending",
       "summary": "Hwk 3.3: Ch 16 (REE3043)"
+    },
+    "3329887": {
+      "detail": "",
+      "due": "2026-11-14",
+      "link": "https://canvas.fsu.edu/courses/366688/assignments/3329887",
+      "status": "pending",
+      "summary": "Exam 3 - FSU Testing Center / OAS (FIN3403)"
     },
     "event-calendar-event-878576": {
       "detail": "",
