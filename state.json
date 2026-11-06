@@ -209,6 +209,13 @@
       "status": "pending",
       "summary": "Quiz 11 Critical Thinking & Time Management (GEB1030)"
     },
+    "3210132": {
+      "detail": "",
+      "due": "2026-11-19",
+      "link": "https://canvas.fsu.edu/courses/357649/assignments/3210132",
+      "status": "pending",
+      "summary": "Quiz 12 Presentations 1 (GEB1030)"
+    },
     "3210134": {
       "detail": "From the syllabus: \"Most of our class meetings will take the form of a workshop, meaning students will practice the skills they are learning about from our readings and other course content. As such, it is important that students are present, attentive, and participatory in every class. Attendance\u2026",
       "due": "2026-08-26",
@@ -370,7 +377,7 @@
     },
     "3242514": {
       "detail": "",
-      "due": "2026-11-08",
+      "due": "2026-11-13",
       "link": "https://canvas.fsu.edu/courses/366688/assignments/3242514",
       "status": "pending",
       "summary": "Chapter 11 Homework (FIN3403)"
@@ -384,7 +391,7 @@
     },
     "3242522": {
       "detail": "",
-      "due": "2026-11-01",
+      "due": "2026-11-13",
       "link": "https://canvas.fsu.edu/courses/366688/assignments/3242522",
       "status": "pending",
       "summary": "Chapter 9 Homework (FIN3403)"
@@ -413,7 +420,7 @@
     },
     "3242529": {
       "detail": "",
-      "due": "2026-11-08",
+      "due": "2026-11-13",
       "link": "https://canvas.fsu.edu/courses/366688/assignments/3242529",
       "status": "pending",
       "summary": "Chapter 10 Homework (FIN3403)"
@@ -1081,6 +1088,13 @@
       "link": "https://canvas.fsu.edu/calendar?include_contexts=course_357741&month=11&year=2026#calendar_event_878586",
       "status": "pending",
       "summary": "Class Cancelled for FSU Trends Conference: Watch Ch 17 Part 1 Voiceover (REE3043)"
+    },
+    "event-calendar-event-878594": {
+      "detail": "",
+      "due": "2026-11-19",
+      "link": "https://canvas.fsu.edu/calendar?include_contexts=course_357741&month=11&year=2026#calendar_event_878594",
+      "status": "pending",
+      "summary": "TVM 2: NPV and IRR (REE3043)"
     },
     "event-calendar-event-880787": {
       "detail": "",
