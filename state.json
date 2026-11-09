@@ -319,7 +319,8 @@
       "summary": "Exam 1 - FSU Testing Center / OAS (MAR3023)"
     },
     "3215520": {
-      "detail": "",
+      "ai_summary": "Take Exam 3 at FSU Testing Center or OAS, covering Chapters 10-15 on products, branding, and supply chains.",
+      "detail": "------ Exam 3 ------ Materials Covered On This Exam ------------------------------- This exam will cover the following material: * Chapter 10: Product Concepts * Chapter 11: New Product Development * Chapter 12: Service Products * Chapter 13: Branding * Chapter 14: Supply Chain * Chapter 15: Retail\u2026",
       "due": "2026-11-13",
       "link": "https://canvas.fsu.edu/courses/361620/assignments/3215520",
       "status": "pending",
@@ -334,7 +335,8 @@
       "summary": "Exam 2 - FSU Testing Center / OAS (MAR3023)"
     },
     "3242502": {
-      "detail": "",
+      "ai_summary": "Take Exam 3 within 60 minutes using SmarterProctoring; you may use a calculator, blank Excel, and a 3x5 notecard.",
+      "detail": "Blank Excel and/or a calculator is permitted during the exam A 3x5 notecard can be used as a \"cheat sheet\" as described in class. There is a 60 minute limit on the exam.",
       "due": "2026-11-13",
       "link": "https://canvas.fsu.edu/courses/366688/assignments/3242502",
       "status": "pending",
@@ -1055,11 +1057,19 @@
       "summary": "Hwk 3.3: Ch 16 (REE3043)"
     },
     "3329887": {
-      "detail": "",
+      "ai_summary": "Take Exam 3 at the FSU Testing Center within 60 minutes using only a 3x5 notecard and blank Excel sheet.",
+      "detail": "No outside communication. A 3x5 notecard can be used as a \"cheat sheet\" as described in class. You have 60 minutes from starting the exam. You may use a blank Excel Sheet.[] (https://canvas.fsu.edu/courses/366688/files/43276406?wrap=1)",
       "due": "2026-11-14",
       "link": "https://canvas.fsu.edu/courses/366688/assignments/3329887",
       "status": "pending",
       "summary": "Exam 3 - FSU Testing Center / OAS (FIN3403)"
+    },
+    "3334774": {
+      "detail": "",
+      "due": "2026-11-16",
+      "link": "https://canvas.fsu.edu/courses/357741/assignments/3334774",
+      "status": "pending",
+      "summary": "Hwk 4.1: Ch 17 (REE3043)"
     },
     "event-calendar-event-878576": {
       "detail": "",
