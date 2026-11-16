@@ -350,6 +350,13 @@
       "status": "pending",
       "summary": "Exam 3 - Off-Campus / SmarterProctoring (FIN3403)"
     },
+    "3242504": {
+      "detail": "",
+      "due": "2026-11-29",
+      "link": "https://canvas.fsu.edu/courses/366688/assignments/3242504",
+      "status": "pending",
+      "summary": "Chapter 12 Homework (FIN3403)"
+    },
     "3242505": {
       "detail": "",
       "due": "2026-09-06",
@@ -391,6 +398,13 @@
       "link": "https://canvas.fsu.edu/courses/366688/assignments/3242514",
       "status": "pending",
       "summary": "Chapter 11 Homework (FIN3403)"
+    },
+    "3242517": {
+      "detail": "",
+      "due": "2026-11-29",
+      "link": "https://canvas.fsu.edu/courses/366688/assignments/3242517",
+      "status": "pending",
+      "summary": "Chapter 13 Homework (FIN3403)"
     },
     "3242519": {
       "detail": "",
@@ -1120,7 +1134,7 @@
       "due": "2026-11-24",
       "link": "https://canvas.fsu.edu/calendar?include_contexts=course_357741&month=11&year=2026#calendar_event_878595",
       "status": "pending",
-      "summary": "No class - Fall Break (REE3043)"
+      "summary": "No class - Listen to this required podcast episode: https://www.cbre.com/insights/podcasts/2026-ep42-timing-capital-deployment (REE3043)"
     },
     "event-calendar-event-878596": {
       "detail": "",
