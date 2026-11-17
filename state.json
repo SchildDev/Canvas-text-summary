@@ -88,11 +88,19 @@
       "summary": "Hwk 1.2: Ch 3 + Trade Pub's (REE3043)"
     },
     "3182250": {
-      "detail": "",
+      "ai_summary": "Complete the Chapter 18 quiz with up to three attempts; highest score counts.",
+      "detail": "Quiz details: * You have three attempts to complete the quiz before the due date. * Only your highest score will count toward your course grade. * If you choose to retake the quiz, you may receive different questions. * Notes: * Exercises 13 and 14 are worth 1.5 points each, instead of 1 point * So\u2026",
       "due": "2026-11-23",
       "link": "https://canvas.fsu.edu/courses/357741/assignments/3182250",
       "status": "pending",
       "summary": "Hwk 4.2: Ch 18 (REE3043)"
+    },
+    "3182251": {
+      "detail": "",
+      "due": "2026-11-30",
+      "link": "https://canvas.fsu.edu/courses/357741/assignments/3182251",
+      "status": "pending",
+      "summary": "Hwk 4.3: TVM 2 + Podcast (REE3043)"
     },
     "3182253": {
       "detail": "This assignment covers the Chapter 1 lectures from the first week of the semester. It also includes questions based on the Professional Introductions presentation in the Careers module. The presentation is a short (5 slides), narrated PowerPoint that will guide you through developing a professional\u2026",
