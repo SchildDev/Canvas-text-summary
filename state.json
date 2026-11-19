@@ -96,7 +96,8 @@
       "summary": "Hwk 4.2: Ch 18 (REE3043)"
     },
     "3182251": {
-      "detail": "",
+      "ai_summary": "Complete a quiz on NPV and IRR, then listen to the assigned CBRE podcast episode.",
+      "detail": "This quiz covers the TVM 2 lecture on Net Present Value (NPV) and Internal Rate of Return (IRR), along with an assigned podcast episode that replaces our class meeting on Tuesday of Thanksgiving week. For the podcast portion, you will listen to the [CBRE podcast episode, Timing Capital Deployment]\u2026",
       "due": "2026-11-30",
       "link": "https://canvas.fsu.edu/courses/357741/assignments/3182251",
       "status": "pending",
@@ -334,6 +335,14 @@
       "status": "pending",
       "summary": "Week 12 E&P (GEB1030)"
     },
+    "3210146": {
+      "ai_summary": "Attend Week 13 E&P workshop class, participate actively, and practice skills from course readings.",
+      "detail": "From the syllabus: \"Most of our class meetings will take the form of a workshop, meaning students will practice the skills they are learning about from our readings and other course content. As such, it is important that students are present, attentive, and participatory in every class. Attendance\u2026",
+      "due": "2026-12-02",
+      "link": "https://canvas.fsu.edu/courses/357649/assignments/3210146",
+      "status": "pending",
+      "summary": "Week 13 E&P (GEB1030)"
+    },
     "3215519": {
       "ai_summary": "Take Exam 1 at FSU Testing Center or OAS, covering Chapters 1-3 on marketing introduction, strategy, and assessment.",
       "detail": "---------------------- Exam 1 Instructions ---------------------- Materials Covered On This Exam ------------------------------- This exam will cover the following chapters: * Chapter 1: An Introduction to Marketing Video Lectures * Chapter 2: Marketing Strategy Video Lectures * Chapter 3: Assessin\u2026",
@@ -428,6 +437,13 @@
       "link": "https://canvas.fsu.edu/courses/366688/assignments/3242519",
       "status": "pending",
       "summary": "Module Two Exam - FSU Testing Center / OAS (FIN3403)"
+    },
+    "3242521": {
+      "detail": "",
+      "due": "2026-11-29",
+      "link": "https://canvas.fsu.edu/courses/366688/assignments/3242521",
+      "status": "pending",
+      "summary": "Chapter 14 Homework (FIN3403)"
     },
     "3242522": {
       "detail": "",
