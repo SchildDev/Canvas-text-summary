@@ -220,6 +220,13 @@
       "status": "pending",
       "summary": "Exercise 04 Virtual Mock Interview (GEB1030)"
     },
+    "3210129": {
+      "detail": "",
+      "due": "2026-12-03",
+      "link": "https://canvas.fsu.edu/courses/357649/assignments/3210129",
+      "status": "pending",
+      "summary": "Networking Reflection & Course Exit Survey (GEB1030)"
+    },
     "3210130": {
       "detail": "",
       "due": "2026-09-16",
@@ -240,6 +247,13 @@
       "link": "https://canvas.fsu.edu/courses/357649/assignments/3210132",
       "status": "pending",
       "summary": "Quiz 12 Presentations 1 (GEB1030)"
+    },
+    "3210133": {
+      "detail": "",
+      "due": "2026-12-03",
+      "link": "https://canvas.fsu.edu/courses/357649/assignments/3210133",
+      "status": "pending",
+      "summary": "Quiz 13 Presentations 2 (GEB1030)"
     },
     "3210134": {
       "detail": "From the syllabus: \"Most of our class meetings will take the form of a workshop, meaning students will practice the skills they are learning about from our readings and other course content. As such, it is important that students are present, attentive, and participatory in every class. Attendance\u2026",
@@ -1174,6 +1188,13 @@
       "link": "https://canvas.fsu.edu/calendar?include_contexts=course_357741&month=11&year=2026#calendar_event_878596",
       "status": "pending",
       "summary": "No class - Fall Break (REE3043)"
+    },
+    "event-calendar-event-878598": {
+      "detail": "",
+      "due": "2026-12-03",
+      "link": "https://canvas.fsu.edu/calendar?include_contexts=course_357741&month=12&year=2026#calendar_event_878598",
+      "status": "pending",
+      "summary": "Review for Exam 4 (REE3043)"
     },
     "event-calendar-event-880787": {
       "detail": "",
