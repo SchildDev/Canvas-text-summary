@@ -1420,6 +1420,13 @@
       "link": "https://canvas.fsu.edu/calendar?include_contexts=course_357741&month=12&year=2026#calendar_event_941407",
       "status": "pending",
       "summary": "Exam 4: Section 1 (the 9:45 AM course) (REE3043)"
+    },
+    "event-calendar-event-941408": {
+      "detail": "",
+      "due": "2026-12-10",
+      "link": "https://canvas.fsu.edu/calendar?include_contexts=course_357741&month=12&year=2026#calendar_event_941408",
+      "status": "pending",
+      "summary": "Exam 4: Section 2 (the 1:30 PM course) (REE3043)"
     }
   }
 }
